@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!--meta: etiqueta para definir metadatos para el navegador-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Armando Mochas - armando.mochas@correo.com">
+    <meta name="description" content="Mi primir sitio web">
+    <meta name="keywords" content="HTML, CSS, Javascrip, jQuery">
+    <meta name="robots" content="index, css, js">
+
+    <!--link: etiqueta sirva para cargar recursos externos de diseño, iconos y otras cositas-->
+    <link rel="shortcut icon" href="../assets/img/rocket.svg" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="../assets/css/styles_new.css">
+
+    <!--title: etiqueta para darle un título a la pestaña que aparece en el navegador-->
+    <title>Javascript | Sitio Web</title>
+</head>
+
+<body>
+    <header class="container-fluid bg-header text-white p-4 text-center" id="header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 id="saludo">Fundamentos de Javascript</h1>
+                    <h2 onmouseenter="cambiarColor()" onmouseleave="recuperarColor()">Bienvenidos a mi primer sitio web
+                    </h2>
+                </div>
+                <div id="reloj">
+                    00:00:00
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg bg-dark sticky-top" data-bs-theme="dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img class="logo-navbar" src="../assets/img/rocket.svg" alt="Logo navbar">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html" target="_self">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bootstrap.html" target="_self">BootStrap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript.html">Javascript</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#multimedia">Videos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Sitios de Interés
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="https://www.w3schools.com/" target="_blank">w3schools</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="https://espndeportes.espn.com/" target="_blank">ESPN</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="https://stackoverflow.com/questions"
+                                    target="_blank">Stackoverflow</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-2">
+        <div class="row">
+            <main class="col-lg-9">
+                <section class="row shadow m-3 p-3 rounded">
+                    <h2>Programación en Javascript</h2>
+                    <div class="col-md-6 mx-auto">
+                        <div class="card shadow">
+                            <div class="card-header">
+                                <h3 class="card-title">MiniCalculadora v1.0</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-2">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control text-center" id="num1" name="num1"
+                                            value="0">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control text-center" id="num2" name="num2"
+                                            value="0">
+                                    </div>
+                                </div>
+                                <div class="row my-3 text-center">
+                                    <h5 class="text-primary fw-bold" id="resultado"></h5>
+                                    <h5 class="text-danger fw-bold" id="error"></h5>
+                                </div>
+                            </div>
+                            <div class="card-footer text-center">
+                                <div class="btn-group">
+                                    <button onclick="sumar()" class="btn btn-outline-primary" type="button">
+                                        <i class="fa-solid fa-plus fs-2"></i>
+                                    </button>
+                                    <button onclick="restar()" class="btn btn-outline-primary" type="button">
+                                        <i class="fa-solid fa-minus fs-2"></i>
+                                    </button>
+                                    <button onclick="multiplicar()" class="btn btn-outline-primary" type="button">
+                                        <i class="fa-solid fa-x fs-2"></i>
+                                    </button>
+                                    <button onclick="dividir()" class="btn btn-outline-primary" type="button">
+                                        <i class="fa-solid fa-divide fs-2"></i>
+                                    </button>
+                                    <button onclick="limpiar()" class="btn btn-outline-primary" type="button">
+                                        <i class="fa-solid fa-c fs-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="row shadow m-3 p-3 rounded">
+                    <div class="col-md-6 mx-auto">
+                        <div class="card shadow">
+                            <div class="card-header">
+                                <h3 class="card-title">Manejo de LocalStorage con Javascript</h3>
+                            </div>
+                            <div class="card-body">
+                                <input type="number" class="form-control mb-3" id="monto" name="monto" placeholder="Ingrese el monto que desea manipular" >
+                                <div class="btn-group mx-auto">
+                                    <button onclick="sumarMonto()" class="btn btn-outline-primary" type="button">
+                                        <i class="fa-solid fa-plus fs-1"></i>
+                                    </button>
+                                    <button onclick="restarMonto()" class="btn btn-outline-primary" type="button">
+                                        <i class="fa-solid fa-minus fs-1"></i>
+                                    </button>
+                                    <button onclick="reiniciarMonto()" class="btn btn-outline-primary" type="button">
+                                        <i class="fa-solid fa-c fs-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <h4 class="card-subtitle">Total Acumulado: <span id="total"></span></h4>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <aside class="d-none d-lg-block col-lg-3 shadow p-3">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia consectetur aspernatur, asperiores
+                    sunt eaque ullam iste quaerat aperiam quibusdam magnam illum at nobis voluptates molestiae
+                    accusamus, ipsa amet labore placeat. Error delectus facere unde odio, accusamus, vel ducimus quas
+                    expedita laboriosam modi mollitia? Magnam quae odio velit quia, doloremque id!</p>
+            </aside>
+        </div>
+    </div>
+
+    <footer class="container-fluid p-5 mt-2 bg-dark text-white">
+        <div class="row">
+            <div class="col-lg-4 mb-3 text-center">
+                <img src="../assets/img/rocket.svg" alt="Logo rocket">
+                <p class="d-inline">&copy;2026 - Rocket Inc.</p>
+            </div>
+            <div class="col-lg-4 mb-3 text-center">
+                <h4>Mapa del Sitio</h4>
+                <hr class="text-white">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="bootstrap.html">Boostrap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="about.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="contact.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="products.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="javascript.html">Javascript</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-4 mb-3">
+                <div class="card bg-transparent border border-0">
+                    <div class="card-header border border-0">
+                        <h4 class="card-title text-white">Subscríbete a nuestro newsletter!!!</h4>
+                    </div>
+                    <div class="card-body border border-0">
+                        <div class="input-group">
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="Ingresa tu correo electrónico">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-outline-light">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center border border-0">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="https://instagram.com">
+                                    <i class="bi bi-instagram fs-1 text-white"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.tiktok.com">
+                                    <i class="bi bi-tiktok fs-1 text-white"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.linkedin.com">
+                                    <i class="bi bi-linkedin fs-1 text-white"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row p-2 text-white text-center">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio odit, qui, aut tempora a ab fuga nam earum
+                illum eligendi expedita tenetur molestiae sint voluptatum aliquam quae ratione modi ipsa.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script src="../assets/js/index.js"></script>
+
+    <script src="../assets/js/app.js"></script>
+
+    <script>
+        function cambiarColor() {
+            /*
+            DOM
+            */
+            document.getElementById('saludo').style.color = 'yellow';
+        }
+
+        function recuperarColor() {
+            document.getElementById('saludo').style.color = 'white';
+        }
+    </script>
+</body>
+
+</html>

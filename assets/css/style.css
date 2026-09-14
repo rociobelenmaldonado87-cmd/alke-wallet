@@ -1,0 +1,43 @@
+    /* Una sola regla CSS para que el movimiento sea suave y no un salto brusco */
+    .efecto-flotar {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    /* Al pasar el mouse (:hover), elevamos la tarjeta y aumentamos su sombra */
+    .efecto-flotar:hover {
+        transform: translateY(-5px); /* Sube 5 píxeles */
+    }
+
+.low-opacity-bg-image {
+  
+  --bg-image: url(../img/fondoPantalla.webp);
+  --bg-image-opacity: 0.40;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  min-height: 500px;
+  position: relative;
+  isolation: isolate;
+}
+
+.low-opacity-bg-image::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: var(--bg-image-opacity);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+
+}
+
+#ocultar {
+    opacity: 1;
+    transition: opacity 0.5s ease; /* Controla la velocidad y el tipo de curva */
+    visibility: visible;
+}
+
+#ocultar.oculto {
+    opacity: 0;
+    visibility: hidden; /* Evita que el elemento invisible sea clickeable */
+}
